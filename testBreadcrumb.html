@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--HTML Section-->
+    <ul class="breadCrumb">
+        <li><a href="#"></a>Home Page</li>
+        <li><a href="#"></a>Category</li>
+        <li><a href="#"></a>Page</li>
+
+    </ul>
+
+    <!--Script for automation schema microdata-->
+    <!--Script for automation schema microdata-->
+    <!---->
+    <!---->
+    <!---->
+    <script>
+        var breadCrumbs = document.querySelector('ul.breadCrumb');
+        console.log(breadCrumbs);
+        var listBread = document.querySelectorAll('ul.breadCrumb li');
+        var linksBread = document.querySelectorAll('ul.breadCrumb li a');
+        if (breadCrumbs) {
+
+            breadCrumbs.setAttribute('itemscope', '');
+            breadCrumbs.setAttribute('itemtype', 'https://schema.org/BreadcrumbList');
+            for (i = 0; i < listBread.length; i++) {
+                listBread[i].setAttribute('itemscope', '');
+                listBread[i].setAttribute('itemprop', 'itemListElement');
+                listBread[i].setAttribute('itemtype', 'https://schema.org/ListItem');
+                var metaProp = document.createElement('meta');
+                metaProp.setAttribute('itemprop', 'position');
+                metaProp.setAttribute('content', [i + 1]);
+                listBread[i].append(metaProp);
+            }
+            for (i = 0; i < linksBread.length; i++) {
+                linksBread[i].setAttribute('itemprop', 'item');
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
