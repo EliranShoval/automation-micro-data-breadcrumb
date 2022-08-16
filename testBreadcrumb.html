@@ -6,15 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <meta name="description" content="">
 </head>
 
 <body>
 
+    <div>
+        <p></p>
+        <p>TEST TEST</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate in quia corporis sit optio sint dicta
+        </p>
+        <p>Eliran shoval</p>
+    </div>
     <!--HTML Section-->
     <ul class="breadCrumb">
-        <li><a href="#"></a>Home Page</li>
-        <li><a href="#"></a>Category</li>
-        <li><a href="#"></a>Page</li>
+        <li><a href="#">HomePage</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About</a></li>
 
     </ul>
 
@@ -24,10 +32,10 @@
     <!---->
     <!---->
     <script>
-        var breadCrumbs = document.querySelector('ul.breadCrumb');
+        let breadCrumbs = document.querySelector('ul.breadCrumb');
         console.log(breadCrumbs);
-        var listBread = document.querySelectorAll('ul.breadCrumb li');
-        var linksBread = document.querySelectorAll('ul.breadCrumb li a');
+        let listBread = document.querySelectorAll('ul.breadCrumb li');
+        let linksBread = document.querySelectorAll('ul.breadCrumb li a');
         if (breadCrumbs) {
 
             breadCrumbs.setAttribute('itemscope', '');
@@ -42,10 +50,20 @@
                 listBread[i].append(metaProp);
             }
             for (i = 0; i < linksBread.length; i++) {
+                var spanTag = document.createElement('span');
+                spanTag.setAttribute('itemprop', 'name');
+                spanTag.textContent = linksBread[i].firstChild.textContent;
+                linksBread[i].replaceChild(spanTag, linksBread[i].firstChild);
                 linksBread[i].setAttribute('itemprop', 'item');
             }
         }
     </script>
+
+    </script>
+
+
+
+
 
 
 </body>
